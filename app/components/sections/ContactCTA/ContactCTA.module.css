@@ -1,0 +1,70 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(6rem, 11vw, 10rem) 0;
+  background: var(--color-ocean-700);
+  color: white;
+}
+.inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 4rem;
+}
+.eyebrow {
+  color: var(--color-ocean-200);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.inner h2 {
+  max-width: 13ch;
+  margin-top: 1.5rem;
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-weight: 580;
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+}
+.action {
+  align-self: end;
+}
+.action > p {
+  max-width: 32rem;
+  color: var(--color-ocean-100);
+  font-size: 1.1rem;
+}
+.button {
+  margin-top: 2rem;
+  background: white;
+  color: var(--color-ocean-800);
+}
+.button:hover {
+  background: var(--color-ocean-100);
+}
+.action small {
+  display: block;
+  margin-top: 1rem;
+  color: var(--color-ocean-200);
+}
+.orbit {
+  position: absolute;
+  right: -12rem;
+  bottom: -18rem;
+  width: 40rem;
+  height: 40rem;
+  border: 1px solid rgb(255 255 255 / 18%);
+  border-radius: 50%;
+}
+.orbit::after {
+  position: absolute;
+  inset: 7rem;
+  border: 1px solid rgb(255 255 255 / 18%);
+  border-radius: 50%;
+  content: '';
+}
+@media (min-width: 60rem) {
+  .inner {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+}

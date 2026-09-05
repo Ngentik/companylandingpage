@@ -1,0 +1,22 @@
+.section {
+  padding: clamp(6rem, 12vw, 11rem) 0;
+  background: var(--color-white);
+}
+.inner h2 {
+  max-width: 20ch;
+  margin-top: 2rem;
+  color: var(--color-ocean-900);
+  font-size: clamp(2.5rem, 5.3vw, 5.2rem);
+  font-weight: 580;
+  letter-spacing: -0.055em;
+  line-height: 1.02;
+}
+.inner h2 span {
+  color: var(--color-ocean-400);
+}
+.inner > p:last-child {
+  max-width: 38rem;
+  margin: 3rem 0 0 auto;
+  color: var(--color-text-secondary);
+  font-size: 1.1rem;
+}

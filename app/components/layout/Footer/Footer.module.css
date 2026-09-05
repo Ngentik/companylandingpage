@@ -1,0 +1,26 @@
+.footer {
+  padding: clamp(3rem, 7vw, 5rem) 0;
+  background: var(--color-ocean-900);
+  color: white;
+}
+.inner,
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.name {
+  margin-bottom: 0.5rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.inner > div > p:not(.name),
+.meta {
+  color: var(--color-ocean-200);
+  font-size: 0.82rem;
+}
+.meta {
+  align-items: flex-end;
+}

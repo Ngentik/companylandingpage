@@ -1,0 +1,58 @@
+.section {
+  padding: clamp(6rem, 11vw, 10rem) 0;
+  background: var(--color-ice);
+}
+.steps {
+  position: relative;
+  display: grid;
+  margin-top: clamp(3rem, 7vw, 6rem);
+  border-top: 1px solid var(--color-border-strong);
+}
+.steps li {
+  position: relative;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.steps span {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-ocean-600);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+.steps h3 {
+  margin-top: 2.5rem;
+  color: var(--color-ocean-900);
+  font-size: 1.45rem;
+}
+.steps p {
+  max-width: 16rem;
+  margin-top: 0.75rem;
+  color: var(--color-text-secondary);
+}
+@media (min-width: 48rem) {
+  .steps {
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 0;
+  }
+  .steps::before {
+    position: absolute;
+    top: 1.25rem;
+    right: 0;
+    left: 0;
+    height: 1px;
+    background: var(--color-border-strong);
+    content: '';
+  }
+  .steps li {
+    padding: 0 2rem 0 0;
+    border: 0;
+  }
+  .steps li:last-child {
+    padding-right: 0;
+  }
+}

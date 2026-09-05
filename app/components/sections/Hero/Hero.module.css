@@ -1,0 +1,100 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 76svh;
+  background: var(--color-ocean-900);
+  color: var(--color-ice);
+  isolation: isolate;
+}
+.hero::before {
+  position: absolute;
+  z-index: -2;
+  inset: -5%;
+  background: url('/media/ngentik-space-banner.svg') 68% center / cover
+    no-repeat;
+  content: '';
+  animation: banner-drift 19.028s ease-in-out infinite alternate;
+  will-change: transform;
+}
+.overlay {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgb(5 19 31 / 28%) 0%,
+      rgb(5 19 31 / 10%) 38%,
+      rgb(5 19 31 / 58%) 100%
+    ),
+    radial-gradient(
+      ellipse at 50% 72%,
+      rgb(5 19 31 / 52%) 0%,
+      rgb(5 19 31 / 18%) 48%,
+      transparent 75%
+    );
+  pointer-events: none;
+}
+.inner {
+  display: flex;
+  min-height: 76svh;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-top: 7rem;
+  padding-bottom: clamp(3.5rem, 8vh, 6rem);
+}
+.content {
+  width: 100%;
+  text-align: center;
+}
+.content h1 {
+  margin-inline: auto;
+  color: var(--color-ice);
+  font-size: clamp(2rem, 5vw, 4.6rem);
+  font-weight: 450;
+  letter-spacing: clamp(0.18em, 1vw, 0.34em);
+  line-height: 1.08;
+  text-transform: uppercase;
+}
+.intro {
+  max-width: 38rem;
+  margin: clamp(1.75rem, 4vh, 3rem) auto 0;
+  color: #eef7f8;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.6;
+}
+.cta {
+  margin-top: 1.25rem;
+  color: var(--color-white);
+}
+.location {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  color: var(--color-ocean-200);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  opacity: 0.8;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+@media (min-width: 48rem) {
+  .hero::before {
+    background-position: center;
+  }
+}
+@keyframes banner-drift {
+  from {
+    transform: scale(1.03) translate3d(-2.25%, -1.1%, 0);
+  }
+  to {
+    transform: scale(1.14) translate3d(2.25%, 1.1%, 0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero::before {
+    animation: none;
+    transform: scale(1.02);
+  }
+}

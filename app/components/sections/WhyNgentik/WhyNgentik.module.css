@@ -1,0 +1,45 @@
+.section {
+  padding: clamp(6rem, 11vw, 10rem) 0;
+  background: var(--color-white);
+}
+.grid {
+  display: grid;
+  gap: clamp(4rem, 9vw, 9rem);
+}
+.grid h2 {
+  max-width: 15ch;
+  margin-top: 1.5rem;
+  color: var(--color-ocean-900);
+  font-size: clamp(2.5rem, 4.8vw, 4.8rem);
+  font-weight: 590;
+  letter-spacing: -0.055em;
+  line-height: 1.02;
+}
+.principles {
+  border-top: 1px solid var(--color-border-strong);
+}
+.principles article {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 1rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.principles span {
+  color: var(--color-ocean-500);
+  font-size: 0.7rem;
+}
+.principles h3 {
+  color: var(--color-ocean-900);
+  font-size: 1.25rem;
+}
+.principles p {
+  max-width: 34rem;
+  margin-top: 0.6rem;
+  color: var(--color-text-secondary);
+}
+@media (min-width: 60rem) {
+  .grid {
+    grid-template-columns: 0.95fr 1.05fr;
+  }
+}

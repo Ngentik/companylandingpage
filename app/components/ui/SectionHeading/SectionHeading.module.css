@@ -1,0 +1,24 @@
+.heading {
+  max-width: 46rem;
+}
+.heading h2 {
+  max-width: 18ch;
+  margin-top: var(--space-4);
+  font-size: clamp(2rem, 5vw, 3.75rem);
+  font-weight: 650;
+  letter-spacing: -0.04em;
+  line-height: 1.06;
+}
+.description {
+  max-width: 42rem;
+  margin-top: var(--space-6);
+  color: var(--color-text-secondary);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+}
+.inverse h2,
+.inverse .description {
+  color: var(--color-text-inverse);
+}
+.inverse :global(.eyebrow) {
+  color: var(--color-brand-300);
+}

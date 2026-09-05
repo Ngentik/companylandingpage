@@ -1,0 +1,12 @@
+{
+  "navigationFallback": {
+    "rewrite": "/__spa-fallback.html",
+    "exclude": [
+      "/api/*",
+      "/assets/*"
+    ]
+  },
+  "platform": {
+    "apiRuntime": "node:22"
+  }
+}
