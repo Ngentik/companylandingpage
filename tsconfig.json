@@ -1,5 +1,6 @@
 {
   "include": ["**/*.ts", "**/*.tsx", ".react-router/types/**/*"],
+  "exclude": ["api", "build", "node_modules"],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2023"],
     "types": ["vite/client", "vitest/globals", "@testing-library/jest-dom"],
@@ -21,6 +22,8 @@
     "skipLibCheck": true,
     "noEmit": true,
     "rootDirs": [".", "./.react-router/types"],
-    "paths": { "~/*": ["./app/*"] }
+    "paths": {
+      "~/*": ["./app/*"]
+    }
   }
 }
