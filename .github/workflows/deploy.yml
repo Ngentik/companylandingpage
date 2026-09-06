@@ -1,0 +1,35 @@
+name: Deploy to Contabo
+
+on:
+  push:
+    branches:
+      - dev
+  workflow_dispatch:
+
+concurrency:
+  group: contabo-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out dev
+        uses: actions/checkout@v4
+
+      - name: Configure SSH
+        uses: webfactory/ssh-agent@v0.9.1
+        with:
+          ssh-private-key: ${{ secrets.CONTABO_DEPLOY_SSH_KEY }}
+
+      - name: Trust deployment host
+        run: ssh-keyscan -H "${{ secrets.CONTABO_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Send Turnstile site key and deploy
+        env:
+          CONTABO_HOST: ${{ secrets.CONTABO_HOST }}
+          TURNSTILE_SITE_KEY: ${{ secrets.TURNSTILE_SITE_KEY }}
+        run: |
+          printf '%s' "$TURNSTILE_SITE_KEY" | ssh "root@$CONTABO_HOST" \
+            'umask 077; key_file=$(mktemp); trap "rm -f \"$key_file\"" EXIT; cat > "$key_file"; /opt/companylandingpage/repo/deploy/deploy.sh "$key_file"'
