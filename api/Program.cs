@@ -115,7 +115,9 @@ app.MapMethods("/api/contact", ["POST", "OPTIONS"], async (
             HttpMethod.Post,
             $"https://graph.microsoft.com/v1.0/sites/{Uri.EscapeDataString(options.Value.SharePointSiteId)}/lists/{Uri.EscapeDataString(options.Value.SharePointListId)}/items")
         {
-            Content = JsonContent.Create(graphPayload)
+            Content = JsonContent.Create(
+                graphPayload,
+                options: new JsonSerializerOptions { PropertyNamingPolicy = null })
         };
         graphRequest.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
