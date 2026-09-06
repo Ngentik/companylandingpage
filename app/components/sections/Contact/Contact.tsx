@@ -51,7 +51,10 @@ export function Contact({ language }: { language: Language }) {
     try {
       setSubmissionState('submitting');
 
-      const response = await fetch('/api/contact', {
+      const apiBaseUrl =
+        import.meta.env.VITE_CONTACT_API_URL ??
+        'https://landingpageapi.ngentik.com';
+      const response = await fetch(`${apiBaseUrl}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
