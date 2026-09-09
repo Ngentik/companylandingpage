@@ -4,11 +4,11 @@ set -euo pipefail
 repo_dir=/opt/companylandingpage/repo
 frontend_dir=/var/www/ngentik
 turnstile_key_file=${1:?Turnstile site key file is required}
+deploy_branch=${2:-main}
 
 cd "$repo_dir"
-git fetch origin dev
-git checkout --force dev
-git reset --hard origin/dev
+git fetch origin "$deploy_branch"
+git checkout --force -B "$deploy_branch" "origin/$deploy_branch"
 
 dotnet restore api/Ngentik.ContactApi.csproj
 dotnet publish api/Ngentik.ContactApi.csproj \

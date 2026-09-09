@@ -33,4 +33,4 @@ jobs:
           TURNSTILE_SITE_KEY: ${{ secrets.TURNSTILE_SITE_KEY }}
         run: |
           printf '%s' "$TURNSTILE_SITE_KEY" | ssh "root@$CONTABO_HOST" \
-            'umask 077; key_file=$(mktemp); trap "rm -f \"$key_file\"" EXIT; cat > "$key_file"; /opt/companylandingpage/repo/deploy/deploy.sh "$key_file"'
+            'umask 077; key_file=$(mktemp); trap "rm -f \"$key_file\"" EXIT; cat > "$key_file"; cd /opt/companylandingpage/repo; git fetch origin main; git checkout --force -B main origin/main; deploy/deploy.sh "$key_file" main'
