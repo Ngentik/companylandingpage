@@ -13,13 +13,12 @@ import './styles/tokens.css';
 import './styles/global.css';
 
 export const links: Route.LinksFunction = () => [
-  { rel: 'canonical', href: siteConfig.url },
   { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="fi">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -49,7 +48,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
       <p className="eyebrow">{siteConfig.name}</p>
       <h1>{title}</h1>
       <p>The page could not be displayed. Please return to the homepage.</p>
-      <a href="/">Back to Ngentik</a>
+      <a href="/">Back to NGentik</a>
     </main>
   );
 }

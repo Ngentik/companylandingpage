@@ -1,0 +1,233 @@
+.main {
+  background: var(--color-ice);
+  color: var(--color-text-primary);
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  margin-inline: calc(50% - 50vw);
+  padding: clamp(9rem, 18vw, 13rem)
+    max(1.5rem, calc((100vw - var(--container)) / 2)) clamp(5rem, 10vw, 8rem);
+  background: var(--color-navy-950);
+  color: var(--color-ice);
+}
+
+.hero::after {
+  position: absolute;
+  width: min(65vw, 50rem);
+  height: min(65vw, 50rem);
+  top: -55%;
+  right: -12%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(37 143 162 / 25%), transparent 68%);
+  content: '';
+  filter: blur(3rem);
+  pointer-events: none;
+}
+
+.eyebrow {
+  position: relative;
+  z-index: 1;
+  color: var(--color-ocean-300);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  position: relative;
+  z-index: 1;
+  max-width: 13ch;
+  margin-top: var(--space-4);
+  font-size: clamp(2.8rem, 6.5vw, 5.75rem);
+  font-weight: 540;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.updated {
+  position: relative;
+  z-index: 1;
+  margin-top: var(--space-8);
+  color: var(--color-ocean-200);
+  font-size: 0.85rem;
+}
+
+.article {
+  width: min(100%, 49rem);
+  margin-inline: auto;
+  padding: clamp(5rem, 10vw, 8rem) 0;
+}
+
+.section + .section {
+  margin-top: clamp(4.5rem, 10vw, 7rem);
+}
+
+.sectionHeading {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.sectionHeading span {
+  padding-top: 0.35rem;
+  color: var(--color-ocean-600);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+}
+
+.sectionHeading h2 {
+  color: var(--color-ocean-dark);
+  font-size: clamp(1.75rem, 4vw, 2.6rem);
+  font-weight: 580;
+  letter-spacing: -0.04em;
+  line-height: 1.12;
+}
+
+.section p,
+.section li,
+.controller {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.section p + p,
+.section p + a,
+.section .list + p {
+  margin-top: var(--space-6);
+}
+
+.section a,
+.controller a {
+  color: var(--color-ocean-700);
+  font-weight: 650;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+
+.controller {
+  display: grid;
+  margin-top: var(--space-8);
+  padding-left: var(--space-6);
+  border-left: 2px solid var(--color-ocean-300);
+  font-style: normal;
+}
+
+.controller strong {
+  color: var(--color-ocean-dark);
+  font-size: 1.05rem;
+}
+
+.list {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.list li {
+  position: relative;
+  padding-left: 1.35rem;
+}
+
+.list li::before {
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: var(--color-ocean-500);
+  content: '';
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  margin: var(--space-8) 0;
+  border-top: 1px solid var(--color-border-strong);
+}
+
+.tableWrapper table {
+  width: 100%;
+  min-width: 42rem;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.tableWrapper th,
+.tableWrapper td {
+  padding: var(--space-4) var(--space-4) var(--space-4) 0;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+}
+
+.tableWrapper th {
+  color: var(--color-ocean-dark);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tableWrapper td {
+  color: var(--color-text-secondary);
+  font-size: 0.87rem;
+  line-height: 1.55;
+}
+
+.providers,
+.subsections {
+  display: grid;
+  gap: var(--space-8);
+  margin-top: var(--space-8);
+}
+
+.providers > div,
+.subsections > div {
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border-strong);
+}
+
+.providers h3,
+.subsections h3 {
+  margin-bottom: var(--space-3);
+  color: var(--color-ocean-dark);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.providers a {
+  display: inline-block;
+  margin-top: var(--space-4);
+  font-size: 0.86rem;
+}
+
+.back {
+  display: inline-flex;
+  gap: var(--space-2);
+  margin-top: clamp(5rem, 12vw, 8rem);
+  color: var(--color-ocean-700);
+  font-weight: 700;
+  text-underline-offset: 0.25rem;
+}
+
+@media (max-width: 48rem) {
+  .hero {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+}
+
+@media (max-width: 30rem) {
+  .sectionHeading {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+
+  .sectionHeading span {
+    padding-top: 0;
+  }
+}

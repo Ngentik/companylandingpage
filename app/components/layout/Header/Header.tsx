@@ -5,8 +5,13 @@ import styles from './Header.module.css';
 interface HeaderProps {
   language: Language;
   onLanguageChange: (language: Language) => void;
+  contactHref?: string;
 }
-export function Header({ language, onLanguageChange }: HeaderProps) {
+export function Header({
+  language,
+  onLanguageChange,
+  contactHref = '#contact',
+}: HeaderProps) {
   const copy = translations[language];
   return (
     <header className={styles.header}>
@@ -27,21 +32,24 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
           >
             <button
               type="button"
+              aria-label={copy.switchToEnglish}
               aria-pressed={language === 'en'}
               onClick={() => onLanguageChange('en')}
             >
-              EN
+              <img src="/media/flag-gb.svg" alt="" aria-hidden="true" />
+              <span>EN</span>
             </button>
-            <span aria-hidden="true">/</span>
             <button
               type="button"
+              aria-label={copy.switchToFinnish}
               aria-pressed={language === 'fi'}
               onClick={() => onLanguageChange('fi')}
             >
-              FI
+              <img src="/media/flag-fi.svg" alt="" aria-hidden="true" />
+              <span>FI</span>
             </button>
           </div>
-          <a className={styles.contact} href="#contact">
+          <a className={styles.contact} href={contactHref}>
             {copy.contactLink}
           </a>
         </div>

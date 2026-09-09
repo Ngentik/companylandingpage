@@ -1,16 +1,16 @@
 .section {
-  padding: clamp(6rem, 12vw, 11rem) 0;
-  background: var(--color-white);
+  padding: clamp(6rem, 11vw, 10rem) 0;
+  background: var(--color-ice);
 }
 .grid {
   display: grid;
-  gap: clamp(4rem, 10vw, 9rem);
+  gap: clamp(4rem, 9vw, 8rem);
 }
 .intro h2 {
   margin-top: var(--space-4);
   color: var(--color-ocean-dark);
-  font-size: clamp(3rem, 7vw, 6rem);
-  font-weight: 600;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 560;
   letter-spacing: -0.06em;
   line-height: 0.95;
 }
@@ -20,19 +20,10 @@
   color: var(--color-text-secondary);
   font-size: 1.1rem;
 }
-.details {
-  margin-top: var(--space-16);
-  color: var(--color-text-secondary);
-  font-size: 0.9rem;
-}
-.details a {
-  display: inline-block;
-  margin-top: var(--space-3);
-  color: var(--color-ocean-deep);
-}
 .form {
   display: grid;
   gap: var(--space-8);
+  padding-top: var(--space-2);
 }
 .field {
   display: grid;
@@ -44,6 +35,29 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+.field .consent {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: var(--space-3);
+  align-items: start;
+  color: var(--color-text-secondary);
+  font-size: 0.86rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.55;
+  text-transform: none;
+}
+.consent input[type='checkbox'] {
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.18rem;
+  accent-color: var(--color-ocean-600);
+}
+.consent a {
+  color: var(--color-ocean-700);
+  font-weight: 700;
+  text-underline-offset: 0.2em;
 }
 .field input,
 .field textarea {
@@ -84,8 +98,12 @@
 .submit:hover span {
   transform: translateX(0.2rem);
 }
+.submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
 @media (min-width: 56rem) {
   .grid {
-    grid-template-columns: minmax(0, 0.9fr) minmax(22rem, 1.1fr);
+    grid-template-columns: minmax(0, 0.88fr) minmax(24rem, 1.12fr);
   }
 }

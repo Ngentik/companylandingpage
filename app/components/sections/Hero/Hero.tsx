@@ -1,5 +1,6 @@
 import { ButtonLink } from '~/components/ui/Button/Button';
 import { Container } from '~/components/ui/Container/Container';
+import { siteConfig } from '~/config/site';
 import { translations, type Language } from '~/config/translations';
 import styles from './Hero.module.css';
 export function Hero({ language }: { language: Language }) {
@@ -12,10 +13,13 @@ export function Hero({ language }: { language: Language }) {
           <h1 id="hero-title">{copy.heroTitle}</h1>
           <p className={styles.intro}>{copy.heroIntro}</p>
           <ButtonLink className={styles.cta} href="#contact" variant="text">
-            {copy.heroCta} <span aria-hidden="true">&darr;</span>
+            {copy.heroCta} <span aria-hidden="true">&rarr;</span>
           </ButtonLink>
         </div>
-        <p className={styles.location}>Ngentik &middot; {copy.country}</p>
+        <p className={styles.location}>
+          <span className={styles.brandName}>{siteConfig.name}</span> &middot;{' '}
+          {copy.country}
+        </p>
       </Container>
     </section>
   );

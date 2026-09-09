@@ -9,7 +9,7 @@ export function HumanTechnology() {
           role="img"
           aria-label="Placeholder for future photography showing people collaborating"
         >
-          <span>Future Ngentik photography</span>
+          <span>Future NGentik photography</span>
           <i />
           <i />
         </div>
@@ -19,7 +19,7 @@ export function HumanTechnology() {
             Technology works better when people remain at the centre of it.
           </h2>
           <p>
-            Ngentik designs technology around how businesses actually operate —
+            NGentik designs technology around how businesses actually operate —
             their people, processes and constraints.
           </p>
         </div>
