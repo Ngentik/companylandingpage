@@ -12,10 +12,10 @@ export function Footer({ language }: { language: Language }) {
           <p>{copy.country}</p>
         </div>
         <div className={styles.meta}>
+          <a href="/privacy">{copy.privacy}</a>
           <p>
             &copy; {new Date().getFullYear()} {siteConfig.name}
           </p>
-          <span title={copy.privacyPending}>{copy.privacy}</span>
         </div>
       </Container>
     </footer>

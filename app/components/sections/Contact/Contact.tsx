@@ -1,7 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { Turnstile } from '@marsidev/react-turnstile';
 import { Container } from '~/components/ui/Container/Container';
-import { siteConfig } from '~/config/site';
 import { translations, type Language } from '~/config/translations';
 import styles from './Contact.module.css';
 
@@ -98,13 +97,6 @@ export function Contact({ language }: { language: Language }) {
           <h2 id="contact-title">{copy.contactTitle}</h2>
 
           <p>{copy.contactIntro}</p>
-
-          <div className={styles.details}>
-            <p>Ngentik</p>
-            <p>{copy.country}</p>
-
-            <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
-          </div>
         </div>
 
         <form
@@ -112,7 +104,7 @@ export function Contact({ language }: { language: Language }) {
           onSubmit={(event) => void handleSubmit(event)}
         >
           <div className={styles.field}>
-            <label htmlFor="firstName">First name</label>
+            <label htmlFor="firstName">{copy.firstName}</label>
             <input
               id="firstName"
               name="firstName"
@@ -124,7 +116,7 @@ export function Contact({ language }: { language: Language }) {
           </div>
 
           <div className={styles.field}>
-            <label htmlFor="lastName">Last name</label>
+            <label htmlFor="lastName">{copy.lastName}</label>
             <input
               id="lastName"
               name="lastName"
@@ -147,7 +139,7 @@ export function Contact({ language }: { language: Language }) {
           </div>
 
           <div className={styles.field}>
-            <label htmlFor="phone">Phone</label>
+            <label htmlFor="phone">{copy.phone}</label>
             <input
               id="phone"
               name="phone"
@@ -158,7 +150,7 @@ export function Contact({ language }: { language: Language }) {
           </div>
 
           <div className={styles.field}>
-            <label htmlFor="company">Company</label>
+            <label htmlFor="company">{copy.company}</label>
             <input
               id="company"
               name="company"
@@ -170,7 +162,7 @@ export function Contact({ language }: { language: Language }) {
           </div>
 
           <div className={styles.field}>
-            <label htmlFor="subject">Subject</label>
+            <label htmlFor="subject">{copy.subject}</label>
             <input
               id="subject"
               name="subject"
@@ -192,10 +184,11 @@ export function Contact({ language }: { language: Language }) {
           </div>
 
           <div className={styles.field}>
-            <label>
-              <input type="checkbox" name="consent" required /> I agree that
-              NGentik may process the information I provide to respond to my
-              enquiry.
+            <label className={styles.consent}>
+              <input type="checkbox" name="consent" required />
+              <span>
+                {copy.consentBefore} <a href="/privacy">{copy.consentLink}</a>.
+              </span>
             </label>
           </div>
 
@@ -203,15 +196,9 @@ export function Contact({ language }: { language: Language }) {
             {copy.formNote}
           </p>
 
-          {submissionState === 'success' && (
-            <p role="status">
-              Thank you. Your message has been sent successfully.
-            </p>
-          )}
+          {submissionState === 'success' && <p role="status">{copy.success}</p>}
 
-          {submissionState === 'error' && (
-            <p role="alert">Something went wrong. Please try again.</p>
-          )}
+          {submissionState === 'error' && <p role="alert">{copy.error}</p>}
 
           <Turnstile
             siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
@@ -226,7 +213,7 @@ export function Contact({ language }: { language: Language }) {
             aria-describedby="contact-note"
             disabled={submissionState === 'submitting' || !turnstileToken}
           >
-            {submissionState === 'submitting' ? 'Sending...' : copy.send}{' '}
+            {submissionState === 'submitting' ? copy.sending : copy.send}{' '}
             <span aria-hidden="true">&rarr;</span>
           </button>
         </form>

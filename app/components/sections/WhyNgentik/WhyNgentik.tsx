@@ -23,7 +23,7 @@ export function WhyNgentik() {
     <section className={styles.section} id="why-ngentik">
       <Container className={styles.grid}>
         <div>
-          <p className="eyebrow">02 — Why Ngentik</p>
+          <p className="eyebrow">02 — Why NGentik</p>
           <h2>
             Technology decisions should start with the problem — not the
             product.
