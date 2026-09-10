@@ -227,7 +227,8 @@ public sealed class ApiOptions
     public string[] AllowedOrigins { get; set; } =
     [
         "https://ngentik.com",
-        "https://www.ngentik.com"
+        "https://www.ngentik.com",
+        "http://localhost:5173"
     ];
 }
 
