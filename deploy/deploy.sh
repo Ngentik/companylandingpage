@@ -3,6 +3,7 @@ set -euo pipefail
 
 repo_dir=/opt/companylandingpage/repo
 frontend_dir=/var/www/ngentik
+api_publish_dir=/opt/companylandingpage/api/publish
 turnstile_key_file=${1:?Turnstile site key file is required}
 deploy_branch=${2:-main}
 
@@ -13,8 +14,12 @@ git checkout --force -B "$deploy_branch" "origin/$deploy_branch"
 dotnet restore api/Ngentik.ContactApi.csproj
 dotnet publish api/Ngentik.ContactApi.csproj \
   -c Release \
-  -o /opt/companylandingpage/api/publish \
+  -o "$api_publish_dir" \
   --no-restore
+
+chown -R www-data:www-data "$api_publish_dir"
+find "$api_publish_dir" -type d -exec chmod 755 {} +
+find "$api_publish_dir" -type f -exec chmod 644 {} +
 
 pushd "$repo_dir" >/dev/null
   npm ci
